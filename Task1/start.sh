@@ -124,7 +124,7 @@ create_backup() {#!/usr/bin/env bash
         exit 1
     fi
 
-    # copy all files and directories from source to backup
+    # копирование всех файлов и папок из источника
     rsync -av --exclude-from="${EXCLUDE_DIRS}" --exclude-from="${EXCLUDE_FILES}" --exclude-from="${EXCLUDE_EXTENSIONS}" "${SOURCE_DIR}" "${BACKUP_DIR}"
 
     if [ "${WITH_COMPRESSION}" == "true" ]; then
@@ -137,7 +137,7 @@ create_backup() {#!/usr/bin/env bash
             gpg --batch --yes --passphrase="${GPG_PASSPHRASE}" --symmetric "../${BACKUP_DIR}/backup.tar.gz"
             echo "Encryption complete"
         fi
-        # remove uncompressed backup
+        # удаление несжатой копии
         rm -rf "${BACKUP_DIR}"
     fi
 
