@@ -1,0 +1,1 @@
+59 23 * * * logwatch --detail Med --mailto alexan757@mail.ru --service vsftpd --service sshd --service xrdp --range today
